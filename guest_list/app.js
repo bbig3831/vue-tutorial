@@ -8,19 +8,30 @@ new Vue({
       signupText: 'Add your name to the guest list <em>exclusive</em> offers:',
     },
     newNameText: '',
-    guestName: ['James', 'Sam', 'Chris'],
-    formSubmitClass: "",
+    guestName: [],
     appStyles: {
       marginTop: '25px'
-    }
+    },
+    eventCapacity: 25,
+    eventCapacityPercentage: 0
   },
   methods: {
     formSubmitted: function() {
-      if(this.newNameText.length > 0) {
+      if(this.newNameText.length > 0 && this.eventCapacityPercentage < 100) {
         this.guestName.push(this.newNameText)
         this.newNameText = ''
-        this.formSubmitClass = "submitted"
+        this.eventCapacityPercentage = this.guestName.length * 100 / this.eventCapacity
       }
+    }
+  },
+  computed: {
+    sortNames: function () {
+      return this.guestName.sort()
+    }
+  },
+  watch: {
+    guestName: function(data) {
+      
     }
   }
 });
