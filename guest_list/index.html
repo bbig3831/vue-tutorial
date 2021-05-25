@@ -33,7 +33,7 @@
               <p class="card-text" v-html="event.signupText"></p>
 
               <form class="form-inline" @submit.prevent="formSubmitted">
-                <input type="text" id="nameInput" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="Jane Doe" v-model="newNameText">
+                <input type="text" id="nameInput" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="Jane Doe" v-model="newNameText" @keyup.space="keyPressed">
                 <input type="submit" class="btn btn-primary"></input>
               </form>
             </div>
@@ -52,7 +52,7 @@
             <div class="card-block">
               <div v-if="guestName.length > 0">
                 <div class="card-success rounded name-box" v-for="name in sortNames">
-                  {{ name }}
+                  {{ name | formatName }}
                 </div>
               </div>
               <div v-else>

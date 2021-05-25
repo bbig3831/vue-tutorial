@@ -22,6 +22,9 @@ new Vue({
         this.newNameText = ''
         this.eventCapacityPercentage = this.guestName.length * 100 / this.eventCapacity
       }
+    },
+    keyPressed: function() {
+      console.log('key pressed')
     }
   },
   computed: {
@@ -31,7 +34,11 @@ new Vue({
   },
   watch: {
     guestName: function(data) {
-      
+    }
+  },
+  filters: {
+    formatName: function(value) {
+      return value.slice(0, 1).toUpperCase() + value.slice(1).toLowerCase()
     }
   }
 });
