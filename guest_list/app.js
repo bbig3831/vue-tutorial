@@ -43,6 +43,12 @@ new Vue({
 new Vue({
   el: '#navigation',
   data: {
-    appName: 'Guest List'
+    appName: 'Guest List',
+    navLinks: [
+      {name: "Home", id: 1, url: "www.duckduckgo.com"},
+      {name: "Upcoming events", id: 2, url: "www.duckduckgo.com"},
+      {name: "Guest Benefits", id: 3, url: "www.duckduckgo.com"},
+      {name: "Latest News", id: 4, url: "www.duckduckgo.com"},
+    ]
   }
 })
