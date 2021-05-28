@@ -1,4 +1,4 @@
-new Vue({
+var vm1 = new Vue({
   el: '#app',
   data: {
     event: {
@@ -40,7 +40,7 @@ new Vue({
   }
 });
 
-new Vue({
+var vm2 = new Vue({
   el: '#navigation',
   data: {
     appName: 'Guest List',
@@ -50,5 +50,10 @@ new Vue({
       {name: "Guest Benefits", id: 3, url: "www.duckduckgo.com"},
       {name: "Latest News", id: 4, url: "www.duckduckgo.com"},
     ]
+  },
+  methods: {
+    changeTitle: function() {
+      this.$refs.name.innerText = 'Title changed'
+    }
   }
 })
